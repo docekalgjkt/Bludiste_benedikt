@@ -4,22 +4,22 @@ class Bludiste:
         self.bludiste = bludiste
 
     def get_sirka(self) -> int:
-        sirka = len(self.bludiste[0])  # Width of the maze
+        sirka = len(self.bludiste[0])  # Sirka bludiste
         return sirka
 
     def get_vyska(self) -> int:
-        vyska = len(self.bludiste)  # Height of the maze
+        vyska = len(self.bludiste)  # Vyska bludiste
         return vyska
 
     def get_vychod(self):
-        # Iterate over the rows and columns to find the exit (2)
-        for y in range(len(self.bludiste)):  # Loop through rows
-            for x in range(len(self.bludiste[y])):  # Loop through columns
-                if self.bludiste[y][x] == 2:  # Exit found
-                    return [x, y]  # Return the coordinates as (x, y)
+        # Projde radky a sloupce bludiste a najde vychod (2)
+        for y in range(len(self.bludiste)):  # Projde radky
+            for x in range(len(self.bludiste[y])):  # Projde sloupce
+                if self.bludiste[y][x] == 2:  # Vychod nalezen
+                    return [x, y]  # Vrati souradnice vychodu
 
                 else:
-                    return None  # If no exit is found
+                    return None  # Pokud neni nalezen vychod
 
     def je_vychod(self) -> bool:
         pass
