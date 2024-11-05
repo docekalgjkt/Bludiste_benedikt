@@ -22,6 +22,7 @@ class Bludiste:
                     return None  # Pokud neni nalezen vychod
 
     def je_vychod(self) -> bool:
+        # Dodelat modul
         pass
 
 bludiste_list = [[0, 1, 1], [0, 1, 0], [0, 0, 2]]
