@@ -35,7 +35,6 @@ def main():
 
     # vytvoreni aplikece
     app = BludisteApp(root, window_width, window_height, cesta_k_souboru)
-    app.vykresli()
 
     # spusteni mainloop
     root.mainloop()
