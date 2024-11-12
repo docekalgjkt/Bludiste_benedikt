@@ -20,5 +20,5 @@ class Bludiste:
         for y, radek in enumerate(self.bludiste):
             for x, hodnota in enumerate(radek):
                 if hodnota == 2:
-                    return y, x  # index policka vychodu
+                    return (y, x)  # index policka vychodu
         return None  # pokud vychod neni
