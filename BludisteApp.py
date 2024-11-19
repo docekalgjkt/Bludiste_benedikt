@@ -26,7 +26,7 @@ def main():
     root = tk.Tk()
     root.title("Bludiste App")
 
-    # sem napisu rozmery okna, mozna to pak udelam pres popup okno
+    # rozmery okna aplikace
     window_width = 600
     window_height = 450
 
