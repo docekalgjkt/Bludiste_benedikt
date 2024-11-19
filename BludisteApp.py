@@ -1,7 +1,7 @@
 import tkinter as tk
 from Bludiste import Bludiste
 from BludisteView import BludisteView
-from BludisteDAO import BludisteDAO
+from BludisteDAO_txt import BludisteDAO
 import os
 
 class BludisteApp:
@@ -10,6 +10,9 @@ class BludisteApp:
         self.window_sirka = window_sirka
         self.window_vyska = window_vyska
 
+        cesta_k_souboru = 'bludiste_test.txt'
+
+        if cesta_k_souboru:
         # Vytvoření instance a spusteni metody
         dao = BludisteDAO()
         bludiste_data = dao.nacti_bludiste(cesta_k_souboru)
@@ -21,6 +24,11 @@ class BludisteApp:
         self.view = BludisteView(root, self.bludiste, self.window_sirka, self.window_vyska)
         self.view.vykresli()
 
+#     vytvoreni metody pro urceni typu souboru (csv, xml, txt)
+    def vyber_souboru(self, cesta_k_souboru):
+        pass
+
+
 # spusteni aplikace
 def main():
     root = tk.Tk()
@@ -29,9 +37,6 @@ def main():
     # rozmery okna aplikace
     window_width = 600
     window_height = 450
-
-    # cesta k souboru pres os knihovnu
-    cesta_k_souboru = os.path.join(os.path.dirname(__file__), 'bludiste_test.txt')
 
     # vytvoreni aplikece
     app = BludisteApp(root, window_width, window_height, cesta_k_souboru)
