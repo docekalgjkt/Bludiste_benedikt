@@ -1,5 +1,4 @@
 import tkinter as tk
-from Bludiste import Bludiste
 
 class BludisteView:
     def __init__(self, root, bludiste, canvas_sirka, canvas_vyska):
