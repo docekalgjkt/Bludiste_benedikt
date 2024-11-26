@@ -2,7 +2,7 @@ import os
 from BludisteDAOInterface import BludisteDAOInterface
 
 # konkretni trida pro nacteni z .txt souboru
-class BludisteDAO(BludisteDAOInterface):
+class BludisteDaoTxt(BludisteDAOInterface):
     def nacti_bludiste(self, cesta_k_souboru):
         if not os.path.exists(cesta_k_souboru):
             raise FileNotFoundError(f"Soubor {cesta_k_souboru} nebyl nalezen.")
