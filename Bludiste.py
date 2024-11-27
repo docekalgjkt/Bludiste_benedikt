@@ -1,24 +1,19 @@
 class Bludiste:
     def __init__(self, bludiste):
         self.bludiste = bludiste
-        self.roboti_pozice = None  # inicializace
-        self.roboti_kontrola = None  # inicializace
-
+        
+    # metoda pro zjisteni sirky bludiste z prvniho vnoreneho seznamu
     def get_sirka(self):
         return len(self.bludiste[0])
 
+    # metoda pro zjisteni vysky podle poctu vnorenych listu
     def get_vyska(self):
         return len(self.bludiste)
 
-    def je_vychod(self):
-        return self.roboti_pozice == 2  # true kdyz je na policku vychod
-
-    def je_volno(self):
-        return self.roboti_kontrola == 0 or self.roboti_kontrola == 2  # true kdyz je policko pruchozi
-
+    # metoda pro zjisteni vychodu - definovan jako cislo 2
     def get_vychod(self):
-        for y, radek in enumerate(self.bludiste):
-            for x, hodnota in enumerate(radek):
+        for x, radek in enumerate(self.bludiste):
+            for y, hodnota in enumerate(radek):
                 if hodnota == 2:
-                    return (y, x)  # index policka vychodu
+                    return (x, y)    # vrati pozici vychodu
         return None  # pokud vychod neni
