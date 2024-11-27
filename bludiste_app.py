@@ -3,7 +3,7 @@ from tkinter import filedialog
 import os
 from bludiste import Bludiste
 from bludiste_view import BludisteView
-from bludiste_dao_factory import BludisteDAOFactory
+from bludiste_dao_factory import BludisteDaoFactory
 
 
 class BludisteApp:
@@ -17,7 +17,7 @@ class BludisteApp:
 
         if cesta_k_souboru:
             # pouziti factory
-            dao = BludisteDAOFactory.get_bludiste_dao(cesta_k_souboru)
+            dao = BludisteDaoFactory.get_bludiste_dao(cesta_k_souboru)
             bludiste_data = dao.nacti_bludiste(cesta_k_souboru)
 
             # vytvoreni instance tridy bludiste

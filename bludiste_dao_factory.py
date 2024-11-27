@@ -3,7 +3,7 @@ from bludiste_dao_txt import BludisteDaoTxt
 from bludiste_dao_csv import BludisteDaoCsv
 from bludiste_dao_xml import BludisteDaoXml
 
-class BludisteDAOFactory:
+class BludisteDaoFactory:
     @staticmethod
     def get_bludiste_dao(cesta_k_souboru):
         _, file_extension = os.path.splitext(cesta_k_souboru)

@@ -1,8 +1,8 @@
 import os
 import csv
-from bludiste_dao_interface import BludisteDAOInterface
+from bludiste_dao_interface import BludisteDaoInterface
 
-class BludisteDaoCsv(BludisteDAOInterface):
+class BludisteDaoCsv(BludisteDaoInterface):
     def nacti_bludiste(self, cesta_k_souboru):
         # zjistuje zda existuje cesta k souboru
         if not os.path.exists(cesta_k_souboru):
