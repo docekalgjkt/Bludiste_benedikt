@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as Et
-from BludisteDAOInterface import BludisteDAOInterface
+from bludiste_dao_interface import BludisteDAOInterface
 
 
 class BludisteDaoXml(BludisteDAOInterface):

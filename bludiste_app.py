@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import filedialog
 import os
-from Bludiste import Bludiste
-from BludisteView import BludisteView
-from BludisteDAOFactory import BludisteDAOFactory
+from bludiste import Bludiste
+from bludiste_view import BludisteView
+from bludiste_dao_factory import BludisteDAOFactory
 
 
 class BludisteApp:

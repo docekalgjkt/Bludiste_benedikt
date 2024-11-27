@@ -1,7 +1,7 @@
 import os
-from BludisteDAO_txt import BludisteDaoTxt
-from BludisteDAO_csv import BludisteDaoCsv
-from BludisteDAO_xml import BludisteDaoXml
+from bludiste_dao_txt import BludisteDaoTxt
+from bludiste_dao_csv import BludisteDaoCsv
+from bludiste_dao_xml import BludisteDaoXml
 
 class BludisteDAOFactory:
     @staticmethod

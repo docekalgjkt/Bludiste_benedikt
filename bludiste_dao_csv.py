@@ -1,6 +1,6 @@
 import os
 import csv
-from BludisteDAOInterface import BludisteDAOInterface
+from bludiste_dao_interface import BludisteDAOInterface
 
 class BludisteDaoCsv(BludisteDAOInterface):
     def nacti_bludiste(self, cesta_k_souboru):

@@ -1,5 +1,5 @@
 import os
-from BludisteDAOInterface import BludisteDAOInterface
+from bludiste_dao_interface import BludisteDAOInterface
 
 # konkretni trida pro nacteni z .txt souboru
 class BludisteDaoTxt(BludisteDAOInterface):
