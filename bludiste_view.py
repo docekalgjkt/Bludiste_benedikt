@@ -16,8 +16,8 @@ class BludisteView:
         sirka = self.bludiste.get_sirka()
         vyska = self.bludiste.get_vyska()
 
-        sirka_ctverce = self.canvas_sirka // sirka
-        vyska_ctverce = self.canvas_vyska // vyska
+        sirka_policka = self.canvas_sirka // sirka
+        vyska_policka = self.canvas_vyska // vyska
 
         for y, radek in enumerate(data):
             for x, hodnota in enumerate(radek):
@@ -25,6 +25,6 @@ class BludisteView:
                 if hodnota == 2:
                     color = 'red'  #kdyz vychod tak barva je cervena
 
-                x1, y1 = x * sirka_ctverce, y * vyska_ctverce
-                x2, y2 = x1 + sirka_ctverce, y1 + vyska_ctverce
+                x1, y1 = x * sirka_policka, y * vyska_policka
+                x2, y2 = x1 + sirka_policka, y1 + vyska_policka
                 self.canvas.create_rectangle(x1, y1, x2, y2, fill=color)
