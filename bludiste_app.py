@@ -29,15 +29,19 @@ class BludisteApp:
             self.view = BludisteView(root, self.bludiste, self.window_sirka, self.window_vyska)
             self.view.vykresli()
 
-            # Vytvoreni instance trid Robot a RobotView
-            self.robot = Robot(color="blue", size=15)
-            self.robot_view = RobotView(self.robot)
+            # Calculate cell size based on the canvas size and maze size
+            sirka_policka = self.window_sirka // self.bludiste.get_sirka()
+            vyska_policka = self.window_vyska // self.bludiste.get_vyska()
 
-            # Nastavi startovni pozici robota
-            start_position = 0, 0  # Example position (0, 0) - you can adjust this based on your maze data
-            self.robot.set_position(*start_position)
+            # Create robot and robot view instances
+            self.robot = Robot(color="blue")  # No need to specify size
+            self.robot_view = RobotView(self.robot, sirka_policka, vyska_policka)
 
-            # Vykresli robota na plátno
+            # Solve the maze to get the path
+            self.robot.solve_maze(self.bludiste.bludiste)
+            self.robot.follow_path()
+
+            # Draw the robot at its starting position
             self.robot_view.draw(self.view.canvas)
 
     def vyber_soubor(self):
