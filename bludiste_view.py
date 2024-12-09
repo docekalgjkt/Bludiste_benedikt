@@ -21,9 +21,9 @@ class BludisteView:
 
         for y, radek in enumerate(data):
             for x, hodnota in enumerate(radek):
-                color = 'white' if hodnota == 0 else 'black' #projde seznam a urci barvu podle typu policek
+                color = 'white' if hodnota == 0 else 'black' # projde seznam a urci barvu podle typu policek
                 if hodnota == 2:
-                    color = 'red'  #kdyz vychod tak barva je cervena
+                    color = 'red'  # vychod je vybarven cervene
 
                 x1, y1 = x * sirka_policka, y * vyska_policka
                 x2, y2 = x1 + sirka_policka, y1 + vyska_policka

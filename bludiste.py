@@ -10,10 +10,10 @@ class Bludiste:
     def get_vyska(self):
         return len(self.bludiste)
 
-    # metoda pro zjisteni vychodu - definovan jako cislo 2
+    # metoda pro zjisteni vychodu reprezentovaneho jako 2
     def get_vychod(self):
-        for x, radek in enumerate(self.bludiste):
-            for y, hodnota in enumerate(radek):
+        for y, radek in enumerate(self.bludiste):
+            for x, hodnota in enumerate(radek):
                 if hodnota == 2:
-                    return (x, y)    # vrati pozici vychodu
+                    return (y, x)    # vrati pozici vychodu
         return None  # pokud vychod neni

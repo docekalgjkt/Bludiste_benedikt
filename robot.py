@@ -4,52 +4,36 @@ class Robot:
     def __init__(self, color):
         self.color = color
         self.position = (0, 0)  # Starting position
-        self.path = []  # To store the calculated path
+        self.path = []  # List to store the path to the exit
     
-    def solve_maze(self, maze):
-        # Find the exit (2 represents the exit in the maze)
+    def vyres_bludiste(self, bludiste):
+    # Simple BFS to find the shortest path (you can replace this with other algorithms)
         start = self.position
-        exit = self.find_exit(maze)
+        end = bludiste.get_vychod()  # Get the exit using the Bludiste method
+        queue = deque([(start, [])])  # Queue to store positions and the path taken to reach them
         visited = set()
-        queue = deque([(start, [])])  # Queue stores (position, path)
-        
+        visited.add(start)
+
         while queue:
-            (x, y), path = queue.popleft()
-            
-            # If the exit is found, return the path
-            if (x, y) == exit:
-                self.path = path  # Store the path to the exit
-                return path
-            
-            if (x, y) in visited:
-                continue
-            
-            visited.add((x, y))
-            
+            current_position, current_path = queue.popleft()
+            x, y = current_position
+
+            # Check if we've reached the end
+            if current_position == end:
+                self.path = current_path + [current_position]
+                return
+
             # Explore neighbors (up, down, left, right)
             for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                nx, ny = x + dx, y + dy
-                # Check if within maze bounds and not a wall (1 represents a wall)
-                if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and maze[nx][ny] != 1:
-                    queue.append(((nx, ny), path + [(nx, ny)]))
-        
-        return []  # No path found
+                new_x, new_y = x + dx, y + dy
+                if 0 <= new_x < len(bludiste.bludiste) and 0 <= new_y < len(bludiste.bludiste[0]) and (new_x, new_y) not in visited and bludiste.bludiste[new_x][new_y] != 1:  # 1 is a wall
+                    visited.add((new_x, new_y))
+                    queue.append(((new_x, new_y), current_path + [current_position]))
 
-    def find_exit(self, maze):
-        # Search for the exit (represented by 2) in the maze
-        for y, row in enumerate(maze):
-            for x, cell in enumerate(row):
-                if cell == 2:  # Exit found
-                    return (x, y)
-        return None  # Return None if no exit is found
-    
-    def follow_path(self):
-        # Move the robot along the path
-        for step in self.path:
-            self.update_position(step)
-            # Here, you can trigger updates in the graphical interface as well
-            print(f"Robot moved to: {step}")
 
-    def update_position(self, new_position):
-        self.position = new_position
-        # Update graphical view or perform other actions here
+    def projdi_bludiste(self):
+        # Move the robot step by step along the path
+        if self.path:
+            self.position = self.path.pop(0)  # Pop the first step from the path
+            return True
+        return False
