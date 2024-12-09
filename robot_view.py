@@ -3,17 +3,20 @@ class RobotView:
         self.robot = robot
         self.sirka_policka = sirka_policka
         self.vyska_policka = vyska_policka
-        self.shape = None  # Will hold the shape (oval) on the canvas
+        self.shape = None  # promenna pro ulozeni tvaru robota
         
-        # Calculate the size of the robot relative to the cell size
-        self.robot.size = min(self.sirka_policka, self.vyska_policka) // 3  # One third of the cell size
+        # spocita velikost robota v zavislosti na velikosti policka
+        self.robot.size = min(self.sirka_policka, self.vyska_policka) // 3  # jedna tretina policka
     
-    def draw(self, canvas):
-        # Draw the robot at its current position
+    def vykresli(self, canvas):
+        # vykresli robota v danem policku
         x, y = self.robot.position
+
+        # vypocita stred policka 
         stred_x = x * self.sirka_policka + self.sirka_policka // 2
         stred_y = y * self.vyska_policka + self.vyska_policka // 2
 
+        # vykresli oval uprostred policka
         size = self.robot.size
         self.shape = canvas.create_oval(
             stred_x - size, stred_y - size, stred_x + size, stred_y + size, fill=self.robot.color

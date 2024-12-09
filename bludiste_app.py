@@ -17,7 +17,7 @@ class BludisteApp:
         # zavola metodu pro vyber souboru
         cesta_k_souboru = self.vyber_soubor()
 
-        # pokud najde cestu pokracuje dal
+        # pokud najde soubor pokracuje dal
         if cesta_k_souboru:
             # pouzije DAO factory pro spravnou interpretaci dat
             dao = BludisteDaoFactory.get_bludiste_dao(cesta_k_souboru)
@@ -39,23 +39,25 @@ class BludisteApp:
             self.robot_view = RobotView(self.robot, sirka_policka, vyska_policka)
 
             # vykresli robota na startovni pozici (0, 0)
-            self.robot_view.draw(self.view.canvas)
+            self.robot_view.vykresli(self.view.canvas)
 
-            # vyresi si v pameti bludiste
+            # vyresi si v pameti bludiste - musim dodelat algoritmus
             self.robot.vyres_bludiste(self.bludiste)
 
+            # to-do: DODELAT PRUCHOD BLUDISTE KROK ZA KROKEM
+
     def vyber_soubor(self):
-        # Get path to the current directory
+        # ziska cestu k aktualni slozce
         slozka = os.path.dirname(__file__)
 
-        # Filter for supported files
+        # Vyfiltruje podporovane soubory
         soubory = [f for f in os.listdir(slozka) if f.endswith(('.txt', '.xml', '.csv'))]
 
         if not soubory:
             print("Žádné podporované soubory nebyly nalezeny.")
             return None
 
-        # Open file dialog to select a file
+        # otevre slozku pro vyber podporovaneho souboru
         soubor = filedialog.askopenfilename(
             title="Vyberte soubor",
             initialdir=slozka,
@@ -65,19 +67,19 @@ class BludisteApp:
         return soubor
 
 
-# Run the application
+# Spusteni aplikace
 def main():
     root = tk.Tk()
-    root.title("Bludiste App")
+    root.title("Bludiště App")
 
-    # Set window dimensions
+    # Rozmery okna
     window_width = 600
     window_height = 450
 
-    # Create application instance
+    # vytvoreni instance aplikace
     app = BludisteApp(root, window_width, window_height)
 
-    # Start main loop
+    # zahajeni hlavni smycky
     root.mainloop()
 
 
